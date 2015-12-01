@@ -15,6 +15,7 @@ public class ArrayProcesses {
         for (int i = 1; i < a.length; i++) {
             if (a[i] > max) max = a[i];
         }
+        return max;
     }
 
     /**
@@ -42,5 +43,37 @@ public class ArrayProcesses {
             copyOfArray[i] = a[i];
         }
         return copyOfArray;
+    }
+
+    /**
+     * Reverses the input array
+     * @param a an array
+     */
+    public void reverseArray(double[] a) {
+        int N = a.length;
+        for (int i = 0; i < N/2; i++) {
+            double temp = a[i];
+            a[i] = a[N - 1 - i];
+            a[N - 1 - i] = temp;
+        }
+    }
+
+    /**
+     * Multiple two square matrices using the dot product.
+     * @param a the first square matrix
+     * @param b the second square matrix
+     * @return  the product of a and b
+     */
+    public double[][] matrixMultiplication(double[][] a, double[][] b) {
+        int N = a.length;
+        double[][] c = new double[N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; i < N; i++) {
+                for (int k = 0; i < N; i++) {
+                    c[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+        return c;
     }
 }
